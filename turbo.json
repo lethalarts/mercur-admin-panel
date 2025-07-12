@@ -1,5 +1,30 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalEnv": [
+    "STORE_CORS",
+    "ADMIN_CORS",
+    "VENDOR_CORS",
+    "AUTH_CORS",
+    "REDIS_URL",
+    "JWT_SECRET",
+    "COOKIE_SECRET",
+    "DB_NAME",
+    "DATABASE_URL",
+    "STRIPE_SECRET_API_KEY",
+    "STRIPE_PUBLISHABLE_API_KEY",
+    "STRIPE_CONNECTED_ACCOUNTS_WEBHOOK_SECRET",
+    "RESEND_API_KEY",
+    "RESEND_FROM_EMAIL",
+    "ALGOLIA_APP_ID",
+    "ALGOLIA_API_KEY",
+    "ALGOLIA_WRITE_API_KEY",
+    "VITE_TALK_JS_APP_ID",
+    "VITE_TALK_JS_SECRET_API_KEY",
+    "VENDOR_PANEL_URL",
+    "STOREFRONT_URL",
+    "BACKEND_URL",
+    "DB_SSL_CA"
+  ],
   "tasks": {
     "build": {
       "dependsOn": [
