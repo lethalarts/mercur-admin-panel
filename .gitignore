@@ -7,6 +7,12 @@ node_modules/
 # Build outputs
 .turbo/
 
+# Generic Build Artifacts (for all workspaces)
+dist/
+build/
+.cache/
+tsconfig.tsbuildinfo
+
 # Logs
 *.log
 npm-debug.log*
@@ -31,21 +37,12 @@ Thumbs.db
 .env.*
 !.env.example
 *.crt
-
-### Workspace: apps/backend ###
-# Medusa / Build artifacts
-apps/backend/dist/
-apps/backend/build/
-apps/backend/.cache/
+ 
+### Workspace Specific ###
+# Medusa backend artifacts
 apps/backend/.medusa/
 apps/backend/public/
 apps/backend/uploads/
 apps/backend/coverage/
 apps/backend/medusa-db.sql
-apps/backend/tsconfig.tsbuildinfo
 apps/backend/*.oas.json
-
-### Workspace: packages ###
-# Build artifacts for all packages
-packages/**/dist/
-packages/**/tsconfig.tsbuildinfo
