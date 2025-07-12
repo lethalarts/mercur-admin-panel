@@ -6,7 +6,9 @@
         "^build"
       ],
       "outputs": [
-        "dist/**"
+        "dist/**",
+        ".medusa/**",
+        "build/**"
       ]
     },
     "dev": {

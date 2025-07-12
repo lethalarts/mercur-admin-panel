@@ -1,44 +1,51 @@
-.env 
-.env.*
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+### General ###
 # Dependencies
-node_modules
-.pnp
-.pnp.js
+node_modules/
 
-# Yarn 2+
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
-.pnp.*
+# Build outputs
+.turbo/
 
-# Testing
-coverage
-
-**/build
-**/dist
-
-# Misc
-.DS_Store
-*.pem
-
-# Debug
+# Logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Local env files
-**/.env
-**/.env.local
-**/.env.development.local
-**/.env.test.local
-**/.env.production.local
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
-# Turbo
-.turbo
+# IDEs / Editors
+.idea/
+.vscode/
 
-# vercel
-.vercel
+# Environment variables - never commit secrets!
+.env
+.env.*
+!.env.example
+*.crt
+
+### Workspace: apps/backend ###
+# Medusa / Build artifacts
+apps/backend/dist/
+apps/backend/build/
+apps/backend/.cache/
+apps/backend/.medusa/
+apps/backend/public/
+apps/backend/uploads/
+apps/backend/coverage/
+apps/backend/medusa-db.sql
+apps/backend/tsconfig.tsbuildinfo
+apps/backend/*.oas.json
+
+### Workspace: packages ###
+# Build artifacts for all packages
+packages/**/dist/
+packages/**/tsconfig.tsbuildinfo

@@ -2,17 +2,38 @@ import { defineConfig, loadEnv } from '@medusajs/framework/utils'
 
 loadEnv(process.env.NODE_ENV || 'development', process.cwd())
 
+const DATABASE_URL = process.env.DATABASE_URL
+if (!DATABASE_URL) {
+  throw new Error(
+    "DATABASE_URL environment variable is not set. Please set it in your .env file or Vercel environment."
+  )
+}
+
 module.exports = defineConfig({
   projectConfig: {
-    databaseUrl: process.env.DATABASE_URL,
+    databaseUrl: DATABASE_URL,
+    // databaseDriverOptions: {
+    //   connection: {
+    //     ssl: {
+    //       // The content of your prod-ca-2021.crt file will be in this env var.
+    //       // This is required for Supabase.
+    //       ca: process.env.DB_SSL_CA,
+    //       rejectUnauthorized: true,
+    //     },
+    //   },
+    // },
     http: {
       storeCors: process.env.STORE_CORS!,
       adminCors: process.env.ADMIN_CORS!,
-      // @ts-expect-error: vendorCors is not a valid config
-      vendorCors: process.env.VENDOR_CORS!,
+      // The 'vendorCors' property is not a standard Medusa config.
+      // It might be specific to a third-party module you are using.
+      // If it's not needed, it's best to remove it to avoid potential issues.
+      ...(process.env.VENDOR_CORS
+        ? { vendorCors: process.env.VENDOR_CORS }
+        : {}),
       authCors: process.env.AUTH_CORS!,
-      jwtSecret: process.env.JWT_SECRET || 'supersecret',
-      cookieSecret: process.env.COOKIE_SECRET || 'supersecret'
+      jwtSecret: process.env.JWT_SECRET!,
+      cookieSecret: process.env.COOKIE_SECRET!
     }
   },
   modules: [
