@@ -13,6 +13,9 @@ build/
 .cache/
 tsconfig.tsbuildinfo
 
+# --- Lockfiles ---
+!yarn.lock
+
 # Logs
 *.log
 npm-debug.log*
