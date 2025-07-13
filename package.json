@@ -22,5 +22,9 @@
     "lint": "turbo run lint",
     "codegen": "cd .",
     "generate:oas": "turbo run generate:oas"
+  },
+  "resolutions": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
   }
 }
